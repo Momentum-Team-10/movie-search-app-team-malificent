@@ -15,5 +15,7 @@ fetch(url)
         let movieCard = document.createElement("div")
         let movieTitle = document.createElement("div")
         movieTitle.innerText = item.title
+        console.log(movieTitle.innerText)
+        movieCard.appendChild()
         }
     })
