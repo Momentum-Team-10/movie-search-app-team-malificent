@@ -44,6 +44,7 @@ fetch(url)
 
 function renderMovieCard(item) {
     let movieCard = document.createElement("div");
+    movieCard.id = item.id 
     renderTitle(item, movieCard);
     renderCreated(item, movieCard);
     renderWatched(item, movieCard);
@@ -79,8 +80,21 @@ function renderWatched(item, movieCard) {
 function watchedClick(div) {
   div.addEventListener("click", () => {
     if (div.innerText === "Not Watched") {
-      console.log("click")
+        div.innerText = "Watched"
+    } else {
+        div.innerText = "Not Watched"
     }
     
   })
+}
+
+function fetchPut(div, boolean) {
+    fetch(url + "/"+ (`div.parentElement.id`), {
+       method:"PUT", 
+       headers: {"content-type": "application/json"}, 
+       body: JSON.stringify({
+
+       })
+
+    }
 }
