@@ -1,16 +1,28 @@
 const form = document.getElementById("movie-form");
-console.log(form);
 const newMovie = document.getElementById("new-movie");
-console.log(newMovie);
 const container = document.getElementById("movie-container");
-console.log(container);
 const url = "http://localhost:3000/movies";
+
+form.addEventListener("submit", (e) => {
+    fetch(url, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            title: newMovie.value,
+            watched: false,
+            created_at: moment()
+        })
+    })
+})
+
+
+
+
 
 // fetching json from database
 fetch(url)
     .then((res) => res.json())
     .then((data) => {
-        console.log(data);
         // iterating through data array full of objects
         for (let item of data) {
             // creating div container for moviecard
