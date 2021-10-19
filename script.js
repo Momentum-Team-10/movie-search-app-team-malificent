@@ -10,9 +10,14 @@ form.addEventListener("submit", (e) => {
         body: JSON.stringify({
             title: newMovie.value,
             watched: false,
-            created_at: moment()
+            created_at: moment().format("LLLL")
         })
     })
+    .then(res => res.json())
+    .then(data => {
+        renderMovieCard(data)
+    })
+
 })
 
 
@@ -25,16 +30,25 @@ fetch(url)
     .then((data) => {
         // iterating through data array full of objects
         for (let item of data) {
+            renderMovieCard(item)
             // creating div container for moviecard
-            let movieCard = document.createElement("div");
+            // let movieCard = document.createElement("div");
 
-            // call render functions and add movieCard to container
-            renderTitle(item, movieCard);
-            renderCreated(item, movieCard);
-            renderWatched(item, movieCard);
-            container.appendChild(movieCard);
+            // // call render functions and add movieCard to container
+            // renderTitle(item, movieCard);
+            // renderCreated(item, movieCard);
+            // renderWatched(item, movieCard);
+            // container.appendChild(movieCard);
         }
     });
+
+function renderMovieCard(item) {
+    let movieCard = document.createElement("div");
+    renderTitle(item, movieCard);
+    renderCreated(item, movieCard);
+    renderWatched(item, movieCard);
+    container.appendChild(movieCard);
+}
 
 // grab title text from json item and render it in an element
 function renderTitle(movieObj, card) {

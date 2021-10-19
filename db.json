@@ -5,6 +5,12 @@
       "title": "Citizen Kane",
       "watched": false,
       "created_at": "Monday, November 30th 2020, 8:19 am"
+    },
+    {
+      "title": "The Bodyguard",
+      "watched": false,
+      "created_at": "Tuesday, October 19, 2021 2:23 PM",
+      "id": 2
     }
   ]
 }
