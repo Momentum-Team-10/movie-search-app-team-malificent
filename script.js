@@ -72,5 +72,15 @@ function renderWatched(item, movieCard) {
     } else {
         movieWatched.innerText = "Not Watched"
     }
+    watchedClick(movieWatched)
     movieCard.appendChild(movieWatched);
+}
+
+function watchedClick(div) {
+  div.addEventListener("click", () => {
+    if (div.innerText === "Not Watched") {
+      console.log("click")
+    }
+    
+  })
 }
