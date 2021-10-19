@@ -16,10 +16,14 @@ fetch(url)
         // creating div containers for moviecard and movie title
       let movieCard = document.createElement("div");
       let movieTitle = document.createElement("div");
+      let movieCreated = document.createElement("div");
+
       // setting the innerText of movie title and adding to moviecard
       movieTitle.innerText = item.title;
+      movieCreated.innerText = item.created_at
       console.log(movieTitle.innerText);
       movieCard.appendChild(movieTitle);
+      movieCard.appendChild(movieCreated);
       
      
       container.appendChild(movieCard)
