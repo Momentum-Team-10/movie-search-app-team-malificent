@@ -6,17 +6,17 @@ const url = "http://localhost:3000/movies";
 form.addEventListener("submit", (e) => {
     fetch(url, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
             title: newMovie.value,
             watched: false,
             created_at: moment().format("LLLL")
         })
     })
-        .then(res => res.json())
-        .then(data => {
-            renderMovieCard(data)
-        })
+    .then(res => res.json())
+    .then(data => {
+        renderMovieCard(data)
+    })
 
 })
 
@@ -44,7 +44,6 @@ fetch(url)
 
 function renderMovieCard(item) {
     let movieCard = document.createElement("div");
-    movieCard.id = item.id
     renderTitle(item, movieCard);
     renderCreated(item, movieCard);
     renderWatched(item, movieCard);
@@ -78,26 +77,10 @@ function renderWatched(item, movieCard) {
 }
 
 function watchedClick(div) {
-    div.addEventListener("click", () => {
-        if (div.innerText === "Not Watched") {
-            div.innerText = "Watched"
-            madeWatched(div, true)
-        } else {
-            div.innerText = "Not Watched"
-            madeWatched(div, false)
-        }
-
-    })
-}
-
-function madeWatched(div, boolean) {
-    fetch(url + "/" + `${div.parentElement.id}`, {
-        method: "PATCH",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({
-            watched: boolean,
-            watched_on: moment().format('LLLL')
-        })
-
-    })
+  div.addEventListener("click", () => {
+    if (div.innerText === "Not Watched") {
+      console.log("click")
+    }
+    
+  })
 }
