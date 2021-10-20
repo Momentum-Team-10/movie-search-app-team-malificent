@@ -48,9 +48,14 @@ function renderMovieCard(item) {
     renderTitle(item, movieCard);
     renderCreated(item, movieCard);
     renderWatched(item, movieCard);
+    deleteMovieCard(movieCard)
     container.appendChild(movieCard);
 }
 
+function deleteMovieCard (movieCard) {
+    let deleteButton = document.createElement("button")
+    
+}
 // grab title text from json item and render it in an element
 function renderTitle(movieObj, card) {
     let movieTitle = document.createElement("div");
@@ -88,4 +93,7 @@ function watchedClick(div) {
     }
     
   })
+}
+function deleteMovieCard (div) {
+    div.addEventListener 
 }
