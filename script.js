@@ -6,17 +6,17 @@ const url = "http://localhost:3000/movies";
 form.addEventListener("submit", (e) => {
     fetch(url, {
         method: 'POST',
-        headers: {'Content-Type': 'application/json'},
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
             title: newMovie.value,
             watched: false,
             created_at: moment().format("LLLL")
         })
     })
-    .then(res => res.json())
-    .then(data => {
-        renderMovieCard(data)
-    })
+        .then(res => res.json())
+        .then(data => {
+            renderMovieCard(data)
+        })
 
 })
 
@@ -44,7 +44,7 @@ fetch(url)
 
 function renderMovieCard(item) {
     let movieCard = document.createElement("div");
-    movieCard.id = item.id 
+    movieCard.id = item.id
     renderTitle(item, movieCard);
     renderCreated(item, movieCard);
     renderWatched(item, movieCard);
@@ -78,23 +78,26 @@ function renderWatched(item, movieCard) {
 }
 
 function watchedClick(div) {
-  div.addEventListener("click", () => {
-    if (div.innerText === "Not Watched") {
-        div.innerText = "Watched"
-    } else {
-        div.innerText = "Not Watched"
-    }
-    
-  })
+    div.addEventListener("click", () => {
+        if (div.innerText === "Not Watched") {
+            div.innerText = "Watched"
+        } else {
+            div.innerText = "Not Watched"
+        }
+
+    })
 }
 
-function fetchPut(div, boolean) {
-    fetch(url + "/"+ (`div.parentElement.id`), {
-       method:"PUT", 
-       headers: {"content-type": "application/json"}, 
-       body: JSON.stringify({
-
-       })
+function madeWatched(div) {
+    fetch(url + "/" + `${div.parentElement.id}`, {
+        method: "PUT",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+            title: ,
+            watched: "true",
+            created_at:
+            watched_on: moment().format('LLLL')
+        })
 
     }
 }
