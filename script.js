@@ -54,6 +54,10 @@ function renderMovieCard(item) {
 
 function deleteMovieCard (movieCard) {
     let deleteButton = document.createElement("button")
+    deleteButton.innerHTML = `<i class="far fa-trash-alt"></i>`
+    movieCard.appendChild(deleteButton);
+    console.log("delete")
+
     
 }
 // grab title text from json item and render it in an element
