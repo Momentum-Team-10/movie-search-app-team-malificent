@@ -44,6 +44,7 @@ fetch(url)
 
 function renderMovieCard(item) {
     let movieCard = document.createElement("div");
+    movieCard.classList.add("box", "movieCard", "is-flex", "is-flex-direction-column","is-align-items-center")
     renderTitle(item, movieCard);
     renderCreated(item, movieCard);
     renderWatched(item, movieCard);
@@ -53,6 +54,7 @@ function renderMovieCard(item) {
 // grab title text from json item and render it in an element
 function renderTitle(movieObj, card) {
     let movieTitle = document.createElement("div");
+    movieTitle.classList.add("is-size-4")
     movieTitle.innerText = movieObj.title;
     card.appendChild(movieTitle);
 }
@@ -69,9 +71,12 @@ function renderWatched(item, movieCard) {
     let movieWatched = document.createElement("div");
     if (item.watched) {
         movieWatched.innerText = "Watched"
+        movieWatched.classList.add("has-text-grey-lights")
     } else {
         movieWatched.innerText = "Not Watched"
+        movieWatched.classList.add("has-text-danger")
     }
+
     watchedClick(movieWatched)
     movieCard.appendChild(movieWatched);
 }
