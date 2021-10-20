@@ -1,16 +1,18 @@
 {
   "movies": [
     {
-      "id": 1,
       "title": "Citizen Kane",
-      "watched": false,
-      "created_at": "Monday, November 30th 2020, 8:19 am"
+      "watched": "true",
+      "watched_on": "Wednesday, October 20, 2021 10:30 AM",
+      "id": 1,
+      "created_at": "2021-10-20T10:28:37-04:00"
     },
     {
       "title": "The Bodyguard",
-      "watched": false,
-      "created_at": "Tuesday, October 19, 2021 2:23 PM",
-      "id": 2
+      "watched": "true",
+      "watched_on": "Wednesday, October 20, 2021 10:30 AM",
+      "id": 2,
+      "created_at": "2021-10-20T10:28:37-04:00"
     }
   ]
 }
