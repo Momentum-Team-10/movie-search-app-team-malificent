@@ -81,22 +81,21 @@ function watchedClick(div) {
     div.addEventListener("click", () => {
         if (div.innerText === "Not Watched") {
             div.innerText = "Watched"
-            madeWatched(div)
+            madeWatched(div, true)
         } else {
             div.innerText = "Not Watched"
+            madeWatched(div, false)
         }
 
     })
 }
 
-function madeWatched(div) {
+function madeWatched(div, boolean) {
     fetch(url + "/" + `${div.parentElement.id}`, {
         method: "PATCH",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
-        
-            watched: "true",
-        
+            watched: boolean,
             watched_on: moment().format('LLLL')
         })
 
